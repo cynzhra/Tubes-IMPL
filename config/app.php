@@ -10,6 +10,7 @@ define('SITE_URL', 'http://localhost/tubes_impl/');
 
 include_once('Connection.php');
 $db = new Connection;
+$conn = $db->conn;
 
 function base_url($sluggable) {
     echo SITE_URL . $sluggable;
