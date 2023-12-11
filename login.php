@@ -1,8 +1,6 @@
 <?php
 session_start();
-include ("config/app.php");
-include("auth.php");
-$auth->isLoggedIn();
+include ("koneksi.php");
 ?>
 
 <!DOCTYPE html>
@@ -37,7 +35,7 @@ $auth->isLoggedIn();
       ?>
     <input type="checkbox" id="chk" aria-hidden="true">
     <div class="signup">
-      <form method="post" action="">
+      <form method="post" action="prosesRegister.php">
         <label for="chk" aria-hidden="true">Sign Up</label>
         <input class="form-control" type="text" name="username" placeholder="Username" required>
         <input class="form-control" type="password" name="password" placeholder="Password" required>
@@ -47,7 +45,7 @@ $auth->isLoggedIn();
     </div>
 
     <div class="login">
-      <form method="post" action="">
+      <form method="post" action="prosesLogin.php">
         <label for="chk" aria-hidden="true">Login</label>
         <input class="form-control" type="text" name="username" placeholder="Username" required>
         <input class="form-control" type="password" name="password" placeholder="Password" required>
