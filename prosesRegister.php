@@ -15,7 +15,7 @@ include("koneksi.php");
 
         // Memeriksa apakah username sudah ada dalam database
         $checkUser = "select username from login where username='$username' Limit 1";
-        $cek = $koneksi->query($checkUser);
+        $cek = $conn->query($checkUser);
 
         // Memasukkan data kedalam database
         $register_query ="Insert into login (username, password, role) Values('$username', '$hashedpass', 'karyawan')";
@@ -24,7 +24,7 @@ include("koneksi.php");
             if($cek->num_rows > 0){
                 header("location:login.php?pesan=username");
             } else{
-                $register = $koneksi->query($register_query);
+                $register = $conn->query($register_query);
                 if($register) {
                     header("location:login.php?pesan=register");
                 } else {
