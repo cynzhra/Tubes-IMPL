@@ -1,49 +1,61 @@
-<meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Owner</title>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="../asset/img/logo.png" type="image/x-icon">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="stylesheet" href="../asset/css/style_dashboard.css">
+</head>
+<body>
 
-  <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css">
-
-  <!-- Custom styles for this template -->
-  <style>
-    body {
-      padding-top: 56px;
-    }
-
-    @media (min-width: 768px) {
-      body {
-        padding-top: 0;
-      }
-    }
-
-    .sidebar {
-      position: fixed;
-      top: 56px;
-      bottom: 0;
-      left: 0;
-      z-index: 1000;
-      padding-top: 20px;
-      padding-right: 10px;
-      padding-left: 10px;
-      overflow-x: hidden;
-      overflow-y: auto;
-      background-color: #FFC0C0;
-    }
-
-    .navbar {
-      background-color: #007bff;
-    }
-
-    .navbar-brand, .navbar-nav .nav-link {
-      color: #ffffff;
-    }
-
-    .navbar-toggler-icon {
-      background-color: #ffffff;
-    }
-
-    .content {
-      margin-top: 56px;
-    }
-  </style>
+<div class="sidebar">
+  <div class="logo"><img src="../asset/img/logo.png" alt="" srcset=""></div>
+   <ul class="menu">
+    <li>
+        <a href="../dashboard.php">
+          <i class="fas fa-tachometer-alt" ></i>
+          <span>Dashboard</span>
+        </a>
+      </li>
+      <li>
+        <a href="../karyawan/data.php">
+          <i class="fas fa-user-alt"></i>
+          <span>Data Karyawan</span>
+        </a>
+      </li>
+      <li>
+        <a href="../barang/barang.php">
+          <i class="fas fa-box"></i>
+          <span>Data Barang</span>
+        </a>
+      </li>
+      <li>
+        <a href="../lokasi/lokasi.php">
+          <i class="fas fa-map marker-alt"></i>
+          <span>Lokasi</span>
+        </a>
+      </li>
+      <li class="logout">
+        <a href="logout.php">
+          <i class="fas fa-sign-out-alt"></i>
+          <span>Logout</span>
+        </a>
+      </li>
+    </ul>
+</div>
+<div class="main--content">
+  <div class="header--wrapper">
+    <div class="header--title">
+      <span>Primary</span>
+      <h2>Dashboard</h2>
+    </div>
+    <div class="user--info">
+      <div class="search--box">
+        <i class="fas fa-search"></i>
+        <input type="text" placeholder="Search" />
+      </div>
+    </div>
+  </div>
+</body>
+</html>

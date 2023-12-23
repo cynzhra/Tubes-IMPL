@@ -16,7 +16,7 @@ if ($cek > 0) {
 		$_SESSION['username']=$username;
 		$_SESSION['role']="admin";
 		//untuk mengalihkan ke halaman admin
-		header("location:admin.php");
+		header("location:dashboard.php");
 
 	}elseif ($data['role']=="user") {
 		$_SESSION['username']=$username;

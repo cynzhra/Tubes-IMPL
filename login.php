@@ -40,7 +40,7 @@ include ("koneksi.php");
         <input class="form-control" type="text" name="username" placeholder="Username" required>
         <input class="form-control" type="password" name="password" placeholder="Password" required>
         <input class="form-control" type="password" name="confirm_password" placeholder="Password Confirm" required>
-        <button type="submit" name="register_btn" class="btn btn-login">Sign Up</button>
+        <button type="submit"class="btn btn-login">Sign Up</button>
       </form>
     </div>
 
@@ -49,7 +49,7 @@ include ("koneksi.php");
         <label for="chk" aria-hidden="true">Login</label>
         <input class="form-control" type="text" name="username" placeholder="Username" required>
         <input class="form-control" type="password" name="password" placeholder="Password" required>
-        <button type="submit" name="login_btn">Login</button>
+        <button type="submit">Login</button>
       </form>
     </div>
   </div>

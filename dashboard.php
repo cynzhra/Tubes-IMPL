@@ -1,6 +1,10 @@
 <?php
-include 'config/app.php';
 session_start();
+include 'koneksi.php';
+
+if(!isset($_SESSION['role'])){
+  header("location:login.php?pesan=belum_login");
+}
 
 // Menghitung jumlah karyawan
 $query_jumlah_karyawan = "SELECT COUNT(*) as total_karyawan FROM karyawan";
@@ -23,83 +27,53 @@ $total_lokasi = $row_jumlah_lokasi['total_lokasi'];
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <?php include 'partial/head.php' ?>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="asset/css/style_dashboard.css">
 </head>
-
 <body>
-
     <!-- Navbar -->
-    <?php include 'partial/navbar.php' ?>
+    <?php include 'partial/head.php' ?>
 
     <!-- Sidebar -->
-    <div class="container-fluid">
-        <div class="row">
-            <nav class="col-md-2 d-none d-md-block sidebar">
-                <div class="sidebar-sticky">
-                    <ul class="nav flex-column ">
-                        <li class="nav-item ">
-                            <a class="nav-link active text-dark" href="dashboard.php">
-                                Dashboard
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" href="barang.php">
-                                Data Barang
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" href="lokasi.php">
-                                Lokasi Barang
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" href="karyawan.php">
-                                Data Karyawan
-                            </a>
-                        </li>
-                        <!-- Add more sidebar items as needed -->
-                    </ul>
-                </div>
-            </nav>
-
-            <!-- Main Content -->
-            <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4 content pt-4">
-                <div class="container mt-4">
-                    <h2>Dashboard</h2>
-
-                    <!-- Cards untuk menampilkan jumlah karyawan, barang, dan lokasi -->
-                    <div class="row">
-                        <div class="col-md-4 mb-4">
-                            <div class="card bg-secondary">
-                                <div class="card-body">
-                                    <h5 class="card-title">Jumlah Karyawan</h5>
-                                    <p class="card-text"><?= $total_karyawan; ?></p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4 mb-4">
-                            <div class="card">
-                                <div class="card-body bg-warning">
-                                    <h5 class="card-title">Jumlah Barang</h5>
-                                    <p class="card-text"><?= $total_barang; ?></p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4 mb-4">
-                            <div class="card">
-                                <div class="card-body bg-success">
-                                    <h5 class="card-title">Jumlah Lokasi</h5>
-                                    <p class="card-text"><?= $total_lokasi; ?></p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </main>
+    <div class="card--container">
+    <h2 class="main--title">Today's Data</h2>
+    <div class="card--wrapper">
+      <div class="payment--card light-red">
+        <div class="card--header">
+          <div class="amount">
+            <span class="title">Data Karyawan</span>
+            <span class="amount--value"><?= $total_karyawan; ?></span>
+          </div>
+          <i class="fas fa-user-alt icon dark-red"></i>
         </div>
+        <span class="card-detail">*** *** ***</span>
+      </div>
+      <div class="payment--card light-blue">
+        <div class="card--header">
+          <div class="amount">
+            <span class="title">Data Barang</span>
+            <span class="amount--value"><?= $total_barang; ?></span>
+          </div>
+          <i class="fas fa-user-alt icon dark-blue"></i>
+        </div>
+        <span class="card-detail">*** *** ***</span>
+      </div>
+      <div class="payment--card light-green">
+        <div class="card--header">
+          <div class="amount">
+            <span class="title">Data Lokasi</span>
+            <span class="amount--value"><?= $total_barang; ?></span>
+          </div>
+          <i class="fas fa-user-alt icon dark-green"></i>
+        </div>
+        <span class="card-detail">*** *** ***</span>
+      </div>
     </div>
+  </div>
 
     <!-- Bootstrap JS and dependencies -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
