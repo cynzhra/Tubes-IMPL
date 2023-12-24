@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en>
 <head>
 <body>
 <h1>Lokasi Barang</h2>
