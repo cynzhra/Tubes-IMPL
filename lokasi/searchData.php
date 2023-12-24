@@ -14,23 +14,21 @@ include '../koneksi.php';
   </head>
   <body>
     <?php
-  $data=$_GET['data'];
-  //echo $data;
-  $sql="Select * from 'seriescrud' where id=$data";
-  $result=mysql_query($con,$sql);
-  if($result){
-    $row=mysql_fetch_assoc($result);
-    echo '<div class="container">
-    <div class="jumbotron">
-      <h1 class="display-4 text-center text-success">'.$row['fname'].'</h1>
-      <p class="lead text-center text-danger">Your Email id is : '.$row['email'].'</p>
-      <hr class="my-4">
-      <a class="btn btn-dark btn-lg" href="search.pph" role="button">Back</a>
-    </div>
-  </div>';
-  }
-
-    ?>
-    
+    $data=$_GET['data'];
+    //echo $data;
+    $sql="Select * from 'seriescrud' where id=$data";
+    $result=mysql_query($con,$sql);
+    if($result){
+      $row=mysql_fetch_assoc($result);
+      echo '<div class="container">
+      <div class="jumbotron">
+        <h1 class="display-4 text-center text-success">'.$row['fname'].'</h1>
+        <p class="lead text-center text-danger">Your Email id is : '.$row['email'].'</p>
+        <hr class="my-4">
+        <a class="btn btn-dark btn-lg" href="search.pph" role="button">Back</a>
+      </div>
+    </div>';
+    } 
+        ?>     
   </body>
 </html>
