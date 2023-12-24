@@ -1,7 +1,81 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Lokasi Barang</title>
+    <head>
+<style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 20px;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        h2 {
+            color: #3498db; /
+            border-bottom: 2px solid #3498db; 
+            padding-bottom: 5px; /
+        }
+
+
+        form {
+            margin-bottom: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border: 1px solid #ddd;
+            border: 4px solid #ddd;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        tr:hover {
+            background-color: #f5f5f5;
+        }
+
+        a {
+            text-decoration: none;
+            color: #3498db;
+        }
+        form {
+        margin-bottom: 20px;
+        margin: 0 auto; /* Center the form on the page */
+        padding: 20px;
+        background-color: #f2f2f2;
+        border-radius: 10px;
+        box-shadow: 0 0 16px rgba(0, 0, 0, 0.1);
+    }
+        input[type="submit"] {
+        background-color: #3498db;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        margin-left:20px;
+    }
+
+    input[type="submit"]:hover {
+        background-color: #2980b9;
+    }
+      
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Barang</title>
+</head>
 </head>
 <body>
     <h1>Sistem Pelacakan Letak Barang | Lokasi Barang</h1>
