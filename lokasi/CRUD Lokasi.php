@@ -1,156 +1,169 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lokasi Barang</title>
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap4.min.css">
     <style>
         body {
             font-family: 'Arial', sans-serif;
             margin: 20px;
         }
 
-        h1 {
-            color: #333;
-        }
-
         h2 {
             color: #3498db;
             border-bottom: 2px solid #3498db;
             padding-bottom: 5px;
+            text-align: center;
+            font-size: 18px;
+            margin-top: 0;
+            margin-bottom: 15px;
         }
 
         form {
             margin-bottom: 20px;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-        }
-
-        th, td {
+            margin: 0;
             padding: 10px;
-            text-align: left;
-            border: 1px solid #ddd;
-            border: 4px solid #ddd;
-        }
-
-        th {
-            background-color: #f2f2f2;
-        }
-
-        tr:hover {
-            background-color: #f5f5f5;
-        }
-
-        a {
-            text-decoration: none;
-            color: #3498db;
-        }
-
-        th:first-child,
-        td:first-child {
-            width: px;
-            /* You can adjust the width as needed */
-        }
-
-        form {
-            margin-bottom: 20px;
-            margin: 0 auto; /* Center the form on the page */
-            padding: 20px;
             background-color: #f2f2f2;
             border-radius: 10px;
             box-shadow: 0 0 16px rgba(0, 0, 0, 0.1);
+            max-width: 50%;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 4px;
+            color: #333;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
         }
 
         input[type="submit"] {
-            background-color: #3498db;
+            background-color: #5DADE2; /* Lighter shade of blue */
             color: #fff;
-            padding: 10px 20px;
+            padding: 6px 12px; /* Smaller padding */
             border: none;
-            border-radius: 5px;
+            border-radius: 3px; /* Smaller border radius */
             cursor: pointer;
-            font-size: 16px;
-            margin-left: 20px;
+            font-size: 14px; /* Smaller font size */
+            margin: 10px 0 0 0;
         }
 
         input[type="submit"]:hover {
-            background-color: #2980b9;
+            background-color: #3498db; /* Original blue on hover */
+        }
+
+        div.dataTables_wrapper div.dataTables_filter {
+            text-align: right;
         }
     </style>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Data Barang</title>
 </head>
 <body>
-    <h1>Sistem Pelacakan Letak Barang | Lokasi Barang</h1>
-    <h2>Data Barang</h2>
-    <table border="1">
-        <tr>
-            <th>No.</th>
-            <th>Kode</th>
-            <th>Nama Lokasi</th>
-            <th>Nama Barang</th>
-            <th>Aksi</th>
-        </tr>
-        <?php
-        // Data barang
-        $data_barang = [
-            ["no_kode" => 1, "id_barang" => "A001", "nama_lokasi" => "contoh lokasi", "nama_barang" => "contoh barang", "aksi" => "<a href='update.php?id=1'>Update</a> | <a href='delete.php?id=1'>Delete</a>"],
-            // ... tambahkan data barang lainnya disini
-        ];
+    <div class="container" style="margin-top: 20px">
+        <div class="row">
+            <div class="col-md-12">
+                <h2 style="text-align: center;margin-bottom: 30px">Sistem Pelacakan Letak Barang | Lokasi</h2>
+                <table id="table_id" class="table table-striped table-bordered" cellspacing="0" width="100%">
+                    <thead>
+                        <tr>
+                            <th style="width: 5%;">No</th>
+                            <th style="width: 10%;">Kode</th>
+                            <th style="width: 25%;">Nama Lokasi</th>
+                            <th style="width: 40%;">Nama Barang</th>
+                            <th style="width: 20%;">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php 
+                            $conn = mysqli_connect("localhost", "root", "", "db_toko");
 
-        foreach ($data_barang as $barang) {
-            echo "<tr>";
-            echo "<td>{$barang['no_kode']}</td>";
-            echo "<td>{$barang['id_barang']}</td>";
-            echo "<td>{$barang['nama_lokasi']}</td>";
-            echo "<td>{$barang['nama_barang']}</td>";
-            echo "<td>{$barang['aksi']}</td>";
-            echo "</tr>";
-        }
-        ?>
-        <?php
-        // Data barang
-        $data_barang = [
-            ["no_kode" => 2, "id_barang" => "A002", "nama_lokasi" => "contoh lokasi", "nama_barang" => "contoh barang", "aksi" => "<a href='update.php?id=1'>Update</a> | <a href='delete.php?id=1'>Delete</a>"],
-            // ... tambahkan data barang lainnya disini
-        ];
+                            if (!$conn) {
+                                die("Connection failed: " . mysqli_connect_error());
+                            }
 
-        foreach ($data_barang as $barang) {
-            echo "<tr>";
-            echo "<td>{$barang['no_kode']}</td>";
-            echo "<td>{$barang['id_barang']}</td>";
-            echo "<td>{$barang['nama_lokasi']}</td>";
-            echo "<td>{$barang['nama_barang']}</td>";
-            echo "<td>{$barang['aksi']}</td>";
-            echo "</tr>";
-        }
-        ?>
-        <?php
-        // Data barang
-        $data_barang = [
-            ["no_kode" => 3, "id_barang" => "A003", "nama_lokasi" => "contoh lokasi", "nama_barang" => "contoh barang", "aksi" => "<a href='update.php?id=1'>Update</a> | <a href='delete.php?id=1'>Delete</a>"],
-            // ... tambahkan data barang lainnya disini
-        ];
+                            $no = 0;
+                            $ambil = mysqli_query($conn, "select * from lokasi");
 
-        foreach ($data_barang as $barang) {
-            echo "<tr>";
-            echo "<td>{$barang['no_kode']}</td>";
-            echo "<td>{$barang['id_barang']}</td>";
-            echo "<td>{$barang['nama_lokasi']}</td>";
-            echo "<td>{$barang['nama_barang']}</td>";
-            echo "<td>{$barang['aksi']}</td>";
-            echo "</tr>";
-        }
-        ?>
-    </table>
+                            while ($data = mysqli_fetch_array($ambil)) {
+                                $no++;  
+                        ?>
+                                <tr>
+                                    <td><?php echo $no;?></td>
+                                    <td><?php echo $data[1];?></td>
+                                    <td style="max-width: 25%; overflow: hidden; text-overflow: ellipsis;"><?php echo $data[2];?></td>
+                                    <td style="max-width: 40%; overflow: hidden; text-overflow: ellipsis;"><?php echo $data[3];?></td> 
+                                    <td style="text-align: center; max-width: 20%; overflow: hidden; text-overflow: ellipsis;">
+                                        <button class="btn btn-sm btn-primary" onclick="edit_data(<?php echo $data['id'];?>)"><i class="glyphicon glyphicon-pencil"></i></button>
+                                        <button class="btn btn-sm btn-danger" onclick="delete_data(<?php echo $data['id'];?>)"><i class="glyphicon glyphicon-trash"></i></button>
+                                        <script type="text/javascript">
+                                            $(document).ready( function () {
+                                                $('#table_id').DataTable();
+                                            } );
 
-    <h2>Tambah Lokasi Barang</h2>
-    <!-- Form untuk menambahkan lokasi barang -->
-    <form action="tambah_lokasi.php" method="post">
-        <label for="nama_lokasi">Nama Lokasi:</label>
-        <input type="text" id="nama_lokasi" name="nama_lokasi" required>
-        <input type="submit" value="Tambah Lokasi">
-    </form>
+                                            function edit_data(id) {
+                                                $.ajax({
+                                                    type: 'GET',
+                                                    url: 'update.php',
+                                                    data: { id: id },
+                                                    success: function (response) {
+                                                        alert('Anda memilih untuk mengedit data dengan ID ' );
+                                                    },
+                                                    error: function (error) {
+                                                        console.log(error);
+                                                        alert('Terjadi kesalahan saat mengambil data untuk diedit.');
+                                                    }
+                                                });
+                                            }
+
+                                            function delete_data(id) {
+                                                if (confirm('Apakah Anda yakin ingin menghapus data ini')) {
+                                                    $.ajax({
+                                                        type: 'POST',
+                                                        url: 'delete.php', 
+                                                        data: { id: id },
+                                                        success: function(response) {
+                                                            location.reload();
+                                                        },
+                                                        error: function(error) {
+                                                            console.log(error);
+                                                            alert('Terjadi kesalahan saat menghapus data.');
+                                                        }
+                                                    });
+                                                }
+                                            }
+                                        </script>
+                                    </td>
+                                </tr>
+                        <?php } ?>
+                    </tbody>
+                </table>
+                <h2 id="tambah-title">Tambah Lokasi Barang</h2>
+                <form action="tambah_lokasi.php" method="post">
+                    <label for="nama_lokasi">Nama Lokasi:</label>
+                    <input type="text" id="nama_lokasi" name="nama_lokasi" required>
+                    <br>
+                    <input type="submit" value="Tambah Lokasi">
+                </form>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap4.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready( function () {
+            $('#table_id').DataTable();
+        } );
+    </script>
 </body>
 </html>
