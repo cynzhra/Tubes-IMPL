@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
+    
 <head>
     <?php include 'partial/head.php' ?>
 </head>
