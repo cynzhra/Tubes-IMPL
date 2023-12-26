@@ -144,9 +144,11 @@
         <div class="details-column">
             <div class="product-details">
             <label for="Detail_barang">Detail Barang:</label>
-                <strong>Nama Produk:</strong> Lorem Ipsum Product<br>
-                <strong>Lokasi:</strong> - <br>
-                <strong>Keterangan:</strong> - <br>
+                <strong>ID Barang:</strong> - <br>
+                <strong>Nama Barang:</strong> - <br>
+                <strong>Harga Barang:</strong> - <br>
+                <strong>Stok Barang:</strong> - <br>
+                <strong>lokasi Barang:</strong> - <br>
                 <!-- Add more details as needed -->
             </div>
         </div>
