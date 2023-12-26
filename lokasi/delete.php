@@ -1,27 +1,23 @@
 <?php
-// Menghubungkan PHP dengan database MySQL
-$conn = new mysqli("localhost", "username", "password", "database");
+// delete.php
 
-// Melakukan pengecekan koneksi
-if ($conn->connect_error) {
-    die("Koneksi gagal: " . $conn->connect_error);
+$conn = mysqli_connect("localhost", "root", "", "db_toko");
+
+if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
 }
 
-// Mengambil id dari url
-$id = $_GET['id'];
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $id = $_POST["id"];
 
-// Menghapus data barang berdasarkan id
-$sql = "DELETE FROM barang WHERE no_kode = $id";
+    $delete_query = "DELETE FROM lokasi WHERE id = $id";
 
-if ($conn->query($sql) === TRUE) {
-    echo "Data barang berhasil dihapus";
-} else {
-    echo "Error: " . $sql . "<br>" . $conn->error;
+    if (mysqli_query($conn, $delete_query)) {
+        echo "Data berhasil dihapus";
+    } else {
+        echo "Error: " . $delete_query . "<br>" . mysqli_error($conn);
+    }
+
+    mysqli_close($conn);
 }
-
-// Menutup koneksi
-$conn->close();
-
-// Mengalihkan ke halaman data_barang.php
-header('Location: data_barang.php');
 ?>
