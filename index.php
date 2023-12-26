@@ -6,7 +6,7 @@ include("koneksi.php"); // memanggil file koneksi.php untuk koneksi ke database
 	<div class="container">
 		<div class="content">
 			<div class="jumbotron">
-				<h1>Des Company</h1>
+				<h1>Data Karyawan</h1>
 				<p>Selamat datang di Menu Input data karyawan.</p>
 				<a href="data.php" data-toggle="tooltip" title="Lihat Data Karyawan" class="btn btn-info" role="button"><span class="glyphicon glyphicon-list"></span> Lihat Data Karyawan</a>
 				<a href="tambah.php" data-toggle="tooltip" title="Tambah Data Karyawan" class="btn btn-success" role="button"><span class="glyphicon glyphicon-user"></span> Tambah Data</a>
