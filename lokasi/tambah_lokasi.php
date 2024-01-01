@@ -1,4 +1,5 @@
 <?php
+
 include("../koneksi.php");
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -12,9 +13,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     } else {
         echo "Error: " . $query_tambah . "<br>" . $conn->error;
     }
+    
 
     // Tutup koneksi
     $stmt->close();
     $conn->close();
 }
 ?>
+
